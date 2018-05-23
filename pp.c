@@ -1,5 +1,5 @@
 #include "ast.h"
-#include "interp.h"
+#include "pretty.h"
 #include "parser.tab.h"
 #include <stdio.h>
 
@@ -8,9 +8,7 @@ int main() {
   if (yyparse(&cmd)) {
     fprintf(stderr, "Some error occurred while parsing\n");
   } else {
-    env_t *env = empty_env();
-    interpret(env, cmd);
-    print_env(env);
-    free_env(env);
+    pretty_printer_t pp = { stdout, 0, 0 };
+    pretty_print_command_t(&pp, cmd);
   }
 }

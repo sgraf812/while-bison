@@ -1,5 +1,5 @@
-#ifndef PRETTY_C
-#define PRETTY_C
+#ifndef PRETTY_H
+#define PRETTY_H
 
 #include <stdio.h>
 #include "ast.h"

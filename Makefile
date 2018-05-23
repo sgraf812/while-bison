@@ -1,7 +1,7 @@
-SRCS := parser.tab.c lex.yy.c ast.c pretty.c main.c
+SRCS := parser.tab.c lex.yy.c ast.c pretty.c env.c interp.c main.c
 OBJS := $(patsubst %.c,%.o,$(SRCS))
 
-all:	while
+all:	pp while
 
 parser.tab.c parser.tab.h:	parser.y
 	bison --defines parser.y
@@ -17,7 +17,10 @@ depend:	.depend
 
 include .depend
 
-while:	$(OBJS)
+pp:	parser.tab.o lex.yy.o ast.o pretty.o pp.o
+	$(CC) $(CFLAGS) -o $@ $^ -lfl -std=gnu99
+
+while:	parser.tab.o lex.yy.o ast.o pretty.o env.o interp.o main.o
 	$(CC) $(CFLAGS) -o $@ $^ -lfl -std=gnu99
 
 clean:
