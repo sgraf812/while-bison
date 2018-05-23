@@ -1,2 +1,7 @@
 *.yy.c
+*.tab.*
+*.o
+*.output
 /while
+*.wh
+.depend
