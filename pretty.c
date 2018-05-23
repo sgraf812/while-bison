@@ -63,6 +63,7 @@ static void command(pretty_printer_t *p, const command_t *cmd) {
       command(p, cmd->if_.then);
       p->indent--;
 
+      format_newline(p);
       format(p, "}");
       break;
   }
