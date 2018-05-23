@@ -13,6 +13,14 @@ Make sure you have `flex`, `bison` and a C compiler installed, or launch a `nix-
 ```
 $ make
 ...
+$ cat examples/fib.wh
+n := 10
+i := 1
+r := 1
+while i <= n {
+  r := r * i
+  i := i + 1
+}
 $ cat examples/fib.wh | ./pp
 n := 10
 i := 1
