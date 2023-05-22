@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-inline const expression_t *new_expression_t(const expression_t expr) {
+static inline const expression_t *new_expression_t(const expression_t expr) {
   expression_t *ret = malloc(sizeof(expression_t));
   memcpy(ret, &expr, sizeof(expression_t));
   return ret;
 }
 
-inline const command_t *new_command_t(command_t cmd) {
+static inline const command_t *new_command_t(command_t cmd) {
   command_t *ret = malloc(sizeof(command_t));
   memcpy(ret, &cmd, sizeof(command_t));
   return ret;
